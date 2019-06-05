@@ -1,0 +1,410 @@
+﻿<!DOCTYPE html>
+<html> 
+<head>
+<meta content="text/html" charset="UTF-8" />
+
+<title>Take your tests</title> 
+<link rel="stylesheet" href="css/odczyt.css">
+<link rel="icon" type="image/ico" href="images/ico.ico">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6345584486276285",
+    enable_page_level_ads: true
+  });
+</script>
+<script type="text/javascript" language="javascript">
+    
+   
+   var indexPolskieSłowo = 2;
+   var words = [];
+
+   function pl(){
+        window.location.hash = "#pl";
+        languages();
+    }
+        function en(){
+        window.location.hash = "#en";
+        languages();
+    }
+    
+    var language = {
+            en: {
+                bar1: "Make your tests",
+
+                browse: "Browse",
+                formulka1: "Please don't change languages during test",
+            
+            },
+            pl: {
+                bar1: "Twórz swoje testy",
+
+                browse: "Przeglądaj",
+                formulka1: "Proszę nie zmieniać języka podczas testu",
+                
+            },            
+        };
+        
+        function languages(){
+            if(window.location.hash === "#pl"){
+                bar1.textContent = language.pl.bar1;
+
+                browse.textContent = language.pl.browse;
+                document.getElementById("podglad").value = "Podgląd";
+                document.getElementById("next").value = "Następne słówka";
+                document.getElementById("sprawdz").value = "Sprawdź poprawność";
+                formulka1.textContent = language.pl.formulka1;
+            };
+            if(window.location.hash === "#en"){
+                bar1.textContent = language.en.bar1;
+
+                browse.textContent = language.en.browse;
+                document.getElementById("podglad").value = "Preview";
+                document.getElementById("next").value = "Next words";     
+                document.getElementById("sprawdz").value = "Check the correctness";
+                formulka1.textContent = language.en.formulka1;
+            };
+        }
+        
+
+    
+</script>
+</head> 
+
+<body onload="start()">
+        <center><div id="appearOnScreen">
+                <textarea id="tekst" style="color: black; margin-top: 10vh;" disabled></textarea>
+                </div></center>
+        <div id="zaslona"></div>
+
+        <nav class="navbar navbar-expand-md fixed-top navbar-dark fontNav">
+        <a class=" fontNav scroll" href="index.html" id="navLogo"> AskMe </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link scroll fontNavA" href="przed_zapis.html" id="bar1">Make your tests
+                    </a>
+                </li>
+                <li class="nav-item active">
+                        <a class="nav-link scroll fontNavA">
+                            <img id="pl" src="images/pol.png" style="height: 14px; width: 28px; cursor: pointer;" onclick="pl()">
+                            <img id="en" src="images/ang.png" style="height: 14px; width: 28px; cursor: pointer;" onclick="en()">
+                        </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="all">
+    <div class="upload-btn-wrapper">
+    <button type="button" class="guziczki" id="browse">Browse</button>
+    <input class="zaladuj" type="file" id="myFile">
+    </div>
+    <br>                               
+    <br>
+    <input type="submit" class="guziczki" id="podglad" onclick="podglad(); showDiv()" value="Preview">
+    <br>
+    <h1 id="j1"></h1>
+    <input class="rameczka" type="text" id="ramka1" value=" " disabled>
+    <br>
+    <p id="formulka1" hidden>Please don't change languages during test</p>
+    <input type="image" style="height: 70px; width: 70px;" src="images/change.ico" border="0" alt="Submit" id="change" onclick="change()" />
+    <br>
+    <h1 id="j2"></h1>
+    <input class="rameczka" type="text" id="ramka2" onfocus="fokus()">
+    <br>
+    <br>
+    <input type ="radio" id="r1" disabled hidden>
+    <img src="images/wrong.png" id="wrong" hidden height="50px" width="50px">
+    <img src="images/right.png" id="right" hidden height="50px" width="50px">
+    <br>
+    <br>
+    <input type="submit" class="guziczki" id="sprawdz" onclick="sprawdz(); poprawne();" value="Check the correctness">
+    <input type="submit" class="guziczki" id="next" onclick="nastepne(); wszystkie();" value="Next words">
+    <br>
+    <br>
+    <p id="na_koniec" hidden>To check your result from the test, click the button "Next words" when it's end</p>
+
+    <p id="wszystkie_slowka" hidden>0</p>
+    <p id="poprawne_slowka" hidden>0</p>
+
+    <textarea id="inputTextToSave" hidden></textarea> <br />
+    </div>
+
+            <footer>
+        <hr class="my-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <center>
+                        <p style="font-family: 'Playfair Display', serif">© AskMe 2018</p>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.getElementById("ramka2").addEventListener("keyup", function(event) {
+            event.preventDefault();
+            if (event.keyCode === 13) {
+                if(! document.getElementById("right").hidden){
+                    document.getElementById("next").click()
+                }
+                else{
+                document.getElementById("sprawdz").click();
+                }
+            }
+        });
+
+
+
+
+        function fokus(){
+            document.getElementById("right").hidden = true;
+            document.getElementById("wrong").hidden = true;
+            document.getElementById("formulka1").hidden = true;
+        }
+        var guzik1 = document.getElementById("wszystkie_slowka");
+        var guzik2 = document.getElementById("poprawne_slowka");
+
+        var clicks_p = 0;
+        var clicks_w = 0;
+
+        function poprawne(){
+            clicks_p += 1;
+            guzik2.innerHTML = clicks_p;
+        }
+
+        function wszystkie(){
+            clicks_w += 1;
+            guzik1.innerHTML = clicks_w;
+        }           
+        
+        function change(){
+            document.getElementById("formulka1").hidden = true;
+
+            document.getElementById("j1").innerHTML = words[1];
+            document.getElementById("j2").innerHTML = words[0];
+            document.getElementById("ramka1").value = words[3];
+            
+            var k = 0;
+            for(i = 0; i < 5; i++){
+            words.splice(k, 2, words[k+1], words[k]);
+            k = k+2;       
+            }
+
+        }
+
+
+        function sprawdzam(){
+
+        var jeden = document.getElementById("wszystkie_slowka");
+        var dwa = document.getElementById("poprawne_slowka");
+
+        var liczby_na_podsumowanie = (jeden.innerHTML) / (dwa.innerHTML) * 100 ;
+        var liczby_na_podsumowanie_zaokraglone = liczby_na_podsumowanie.toFixed(2);
+        var podsumowanie = "Your correctness is " + liczby_na_podsumowanie_zaokraglone + "%";
+
+            alert(podsumowanie);
+            zerowanie();
+
+        }
+
+        function zerowanie(){
+            document.getElementById("wszystkie_slowka").innerHTML = 0;
+            document.getElementById("ramka1").value = "  ";
+        }
+
+        
+        function widzialnosc(){
+
+        if(document.getElementById("inputTextToSave").value === ""){
+            document.getElementById("podglad").hidden = true;
+            document.getElementById("ramka1").hidden = true;
+            document.getElementById("ramka2").hidden = true;
+            document.getElementById("sprawdz").hidden = true;
+            document.getElementById("next").hidden = true;
+            document.getElementById("change").hidden = true;
+            
+        }
+        else{
+            document.getElementById("podglad").hidden = false;
+            document.getElementById("ramka1").hidden = false;
+            document.getElementById("ramka2").hidden = false;
+            document.getElementById("sprawdz").hidden = false;
+            document.getElementById("next").hidden = false; 
+            document.getElementById("change").hidden = false;     
+                
+        }
+
+            setTimeout("widzialnosc()", 50);
+
+            
+        }
+
+        document.getElementById("myFile").onchange = function() {
+            loadFileAsText();
+        
+        };
+
+
+
+    
+	function loadFileAsText(){
+        document.getElementById("formulka1").hidden = false;
+        document.getElementById("wszystkie_slowka").innerHTML = 0;
+        document.getElementById("poprawne_slowka").innerHTML = 0;
+
+	  var myFile = document.getElementById("myFile").files[0];
+ 
+	  var fileReader = new FileReader();
+	  fileReader.onload = function(fileLoadedEvent){
+		  var textFromFileLoaded = fileLoadedEvent.target.result;
+		  document.getElementById("inputTextToSave").value = textFromFileLoaded;
+                  
+                  
+                  words = textFromFileLoaded.split("\n");
+                  indexPolskieSłowo = 2;
+                  document.getElementById("j1").innerHTML = words[0];
+                  document.getElementById("j2").innerHTML = words[1];
+                  updateTextBoxes();
+	  };
+ 
+	  fileReader.readAsText(myFile, "UTF-8");
+	}
+        
+        function nastepne() {
+            indexPolskieSłowo += 2;
+            updateTextBoxes();
+            ramka2.value = "";
+            document.getElementById("right").hidden = true;
+            document.getElementById("wrong").hidden = true;
+
+        }
+        
+        function updateTextBoxes() {
+            if(indexPolskieSłowo < words.length) {
+                ramka1.value = words[indexPolskieSłowo];
+            }
+            else {
+                ramka1.value = "";
+                //sprawdzam();
+            }
+        }
+            
+        function sprawdz(){   
+        if (ramka2.value.toLowerCase() === words[indexPolskieSłowo+1].toLowerCase())
+        {
+            document.getElementById("wrong").hidden = true; 
+            document.getElementById("right").hidden = false; 
+        }
+        else
+        {
+            document.getElementById("wrong").hidden = false; 
+            document.getElementById("right").hidden = true; 
+        }
+        }
+
+          document.getElementById("tekst").textContent = "Clicked inside!";
+
+        var zaslona = document.getElementById("zaslona");
+        var appearOnScreen = document.getElementById("appearOnScreen");
+        
+        appearOnScreen.onclick = function(){
+            document.getElementById("browse").hidden = false;
+            appearOnScreen.style.display = "none";
+            zaslona.style.display = "none";
+        }
+        zaslona.onclick = function(){
+        //zaslona.style.opacity = 0;
+        document.getElementById("browse").hidden = false;
+        appearOnScreen.style.display = "none";
+        zaslona.style.display = "none";
+        }
+
+        function showDiv(){
+        //zaslona.style.opacity = 1;
+        zaslona.style.display = "block";
+        appearOnScreen.style.display = "block";
+        }
+        function podglad(){
+
+            document.getElementById("browse").hidden = true;
+
+            var slowa = [];
+
+            var x = 0;
+            var y = 1;
+            var tekst = document.getElementById("inputTextToSave").value;
+            slowa = tekst.split("\n");
+            
+            
+           var text = "";
+           var i = 0;
+           
+           while(slowa[i]){
+
+               if(slowa[x]!==" "){
+               text += slowa[x] + " - " + slowa[y] + "\n";
+               }
+               x = x + 2 ;
+               y = y + 2 ;
+               i++;
+               
+           }
+            
+            //var okno = window.open("", "Words", "width=200,height=500,text-align=center");
+            var find = text.split('undefined - undefined').join('');
+            find=find.split('-').join('');
+			find=find.split('- undefined').join('');
+			find=find.split('undefined').join('');
+			find=find.split('undefined -').join('');
+            document.getElementById("tekst").value = find;
+        }
+
+        function start(){
+            widzialnosc();
+            dalej();
+            wywolaj_pods();
+        }
+            function dalej() {
+               
+            if(document.getElementById("right").hasAttribute("hidden")) {
+                //document.getElementById("next").disable = true;
+                document.getElementById("next").setAttribute("disabled", "disabled");
+                
+            }
+            else{
+                document.getElementById("next").removeAttribute("disabled");
+                //alert("xd");
+            }
+
+            setTimeout("dalej()", 50);
+
+
+        }
+        
+        function wywolaj_pods(){
+
+            var w_ramce = document.getElementById("ramka1").value;
+            var liczba = document.getElementById("poprawne_slowka").innerHTML;
+
+            if(w_ramce === "" && liczba > "0"){
+                //alert("dzila");
+                sprawdzam();
+                
+            }
+             setTimeout("wywolaj_pods()", 50);
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,490 @@
+﻿<!DOCTYPE html>
+<html> 
+<head>
+<meta content="text/html" charset="UTF-8" />
+
+<title>Connecting tests</title> 
+
+<link rel="icon" type="image/ico" href="images/ico.ico">
+<link rel="stylesheet" href="css/laczenie.css">
+<script src="scripts/https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="scripts/filesaver.js"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6345584486276285",
+    enable_page_level_ads: true
+  });
+</script>
+<script type="text/javascript" language="javascript">
+
+    
+   function pl(){
+        window.location.hash = "#pl";
+        languages();
+    }
+        function en(){
+        window.location.hash = "#en";
+        languages();
+    }
+    
+    var language = {
+            en: {
+                bar1: "Take your tests",
+
+                header1: "First test",
+                header2: "Second test",
+
+                text1: "Chose first test to connect:",
+                text2: "Chose second test to connect:",
+
+                guzik1: "Browse",
+                guzik2: "Preview", 
+                guzik3: "Connect",
+                guzik4: "Save",                
+            },
+            pl: {
+                bar1: "Rozwiązuj swoje testy",
+
+                header1: "Pierwszy test",
+                header2: "Drugi test",
+
+                text1: "Wybierz pierwszy test do połączenia:",
+                text2: "Wybierz drugi test do połączenia:",
+
+                guzik1: "Przeglądaj",
+                guzik2: "Podgląd", 
+                guzik3: "Połącz",
+                guzik4: "Zapisz",                      
+            },            
+        };
+        
+        function languages(){
+            if(window.location.hash === "#pl"){
+                bar1.textContent = language.pl.bar1;
+
+                header1.textContent = language.pl.header1;
+                header2.textContent = language.pl.header2;
+
+                text1.textContent = language.pl.text1;
+                text2.textContent = language.pl.text2;
+
+                document.getElementById("browse").textContent = language.pl.guzik1;  
+                document.getElementById("browse1").textContent = language.pl.guzik1;
+                document.getElementById("podglad").value = language.pl.guzik2;  
+                document.getElementById("podglad1").value = language.pl.guzik2;
+                document.getElementById("podglad2").value = language.pl.guzik2;
+                document.getElementById("connect").value = language.pl.guzik3;
+                guzik3.textContent = language.pl.guzik4;              
+            };
+            if(window.location.hash === "#en"){
+                bar1.textContent = language.en.bar1;
+
+                header1.textContent = language.en.header1;
+                header2.textContent = language.en.header2;
+
+                text1.textContent = language.en.text1;
+                text2.textContent = language.en.text2;
+
+                document.getElementById("browse").textContent = language.en.guzik1;  
+                document.getElementById("browse1").textContent = language.en.guzik1;
+                document.getElementById("podglad").value = language.en.guzik2;  
+                document.getElementById("podglad1").value = language.en.guzik2;
+                document.getElementById("podglad2").value = language.en.guzik2;
+                document.getElementById("connect").value = language.en.guzik3;
+                guzik3.textContent = language.en.guzik4;        
+            };
+        }
+
+
+
+
+
+
+    
+</script>
+</head> 
+
+<body>
+        <center><div id="appearOnScreen">
+                <textarea id="tekst" style="color: black; margin-top: 10vh;" disabled></textarea>
+                </div></center>
+        <div id="zaslona"></div>
+        <nav class="navbar navbar-expand-md fixed-top navbar-dark fontNav">
+        <a class=" fontNav scroll" href="index.html" id="navLogo"> AskMe </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link scroll fontNavA" href="przed_odczyt.html" id="bar1">Take your tests
+                    </a>
+                </li>
+                <li class="nav-item active">
+                        <a class="nav-link scroll fontNavA">
+                            <img id="pl" src="images/pol.png" style="height: 14px; width: 28px; cursor: pointer;" onclick="pl()">
+                            <img id="en" src="images/ang.png" style="height: 14px; width: 28px; cursor: pointer;" onclick="en()">
+                        </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="all">
+        <table style="width: 94%; margin-left: 3%; margin-right: 3%;">
+            <tr>
+              <th style="width: 47%; font-size: 25px" id="header1">First test</th>
+              <th style="width: 47%; font-size: 25px" id="header2">Second test</th> 
+            </tr>
+            <tr>
+              <td><br><p id="text1">Chose first test to connect:
+                </p>
+                <br>
+                <div class="upload-btn-wrapper">
+                        <button type="button" class="guziczki" id="browse">Browse</button>
+                        <input class="zaladuj" type="file" id="myFile">
+                </div>
+                <br>
+                <input type="submit" class="guziczki" id="podglad" onclick="podglad(); showDiv()" value="Preview">
+              </td>
+              <td><br><p id="text2">Chose second test to connect:
+                </p>
+                <br>
+                <div class="upload-btn-wrapper">
+                        <button type="button" class="guziczki" id="browse1">Browse</button>
+                        <input class="zaladuj" type="file" id="myFile1">
+                </div>
+                <br>
+                <input type="submit" class="guziczki" id="podglad1" onclick="podglad1(); showDiv()" value="Preview">
+              </td> 
+            </tr>
+          </table>        
+    <input type="submit" class="guziczki" id="podglad2" onclick="podglad2(); showDiv()" value="Preview">
+    <br>
+    <input type="submit" class="guziczki" id="connect" onclick="connect()" value="Connect" >
+    <br>
+    <form name="forma">
+    <textarea disabled name="pole" id="podgladslowek"></textarea><br />
+    </form>
+    <p id="dlink"></p>
+    <button class="guziczki" onclick="Zapisz()" id="guzik3">Save</button>
+    <form name="forma1" >
+    <textarea name="pole1" id="podgladslowek1" hidden></textarea><br />
+    <textarea id="inputTextToSave" hidden></textarea>
+    <textarea id="inputTextToSave1" hidden></textarea>
+    <p id="jezyk_1" hidden></p>
+    <p id="jezyk_2" hidden></p>
+    </form>
+    </div>
+        <footer>
+        <hr class="my-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <center>
+                        <p style="font-family: 'Playfair Display', serif">© AskMe 2018</p>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    
+    <script>
+
+        function podglad2(){
+
+            document.getElementById("browse").hidden = true;
+            document.getElementById("browse1").hidden = true;
+
+            var slowa = [];
+
+            var przerwa = "\r\n";
+
+            var x = 0;
+            var y = 1;
+            var tekst = document.getElementById("inputTextToSave").value;
+            var tekst1 = document.getElementById("inputTextToSave1").value;
+
+            var wszystko = tekst + przerwa + tekst1;
+
+            slowa = wszystko.split("\n");
+            
+            var text = "";
+            var i = 0;
+           
+            while(slowa[i]){
+
+               if(slowa[x]!==" "){
+               text += slowa[x] + " - " + slowa[y] + "\n";
+               }
+               x = x + 2 ;
+               y = y + 2 ;
+               i++;
+            }
+            
+            //var okno = window.open("", "Words", "width=200,height=500,text-align=center");
+            var find = text.split('undefined - undefined').join('');
+            find=find.split('-').join('');
+			find=find.split('- undefined').join('');
+			find=find.split('undefined').join('');
+			find=find.split('undefined -').join('');
+            document.getElementById("tekst").value = find;            
+        }
+
+        function connect(){
+            var test1 = document.getElementById("inputTextToSave").value;
+            var test2 = document.getElementById("inputTextToSave1").value; 
+
+            var przerwa =  "\r\n"; 
+            var all = test1 + przerwa + test2;
+            document.getElementById("podgladslowek1").value = all;
+
+            connect1();
+            
+        }
+        function connect1(){
+
+            var slowa = [];
+
+            var x = 0;
+            var y = 1;
+            var tekst = document.getElementById("podgladslowek1").value;
+            slowa = tekst.split("\n");
+
+            
+            var text = "";
+            var i = 0;
+           
+            while(slowa[i]){
+
+               if(slowa[x]!==" "){
+               text += slowa[x] + " - " + slowa[y] + "\n";
+               }
+               x = x + 2 ;
+               y = y + 2 ;
+               i++;
+               
+           }
+
+            var find = text.split('undefined - undefined').join('');
+            find=find.split('-').join('');
+			find=find.split('- undefined').join('');
+			find=find.split('undefined').join('');
+			find=find.split('undefined -').join('');
+            document.getElementById("podgladslowek").value = find;
+        }
+
+        function przerwa1(){
+            var tekst1 = document.getElementById("podgladslowek1").value;
+            var przerwa1 = "\r\n";
+            document.getElementById("podgladslowek1").value = tekst1 + przerwa1;
+        }
+
+        function przerwa(){
+            var tekst = document.getElementById("podgladslowek").value;
+            var przerwa = "\r\n";
+            document.getElementById("podgladslowek").value = tekst + przerwa;            
+        }
+
+        
+        /*function insertMetachars(sStartTag, sEndTag) {
+                   
+            var bDouble = arguments.length > 1, oMsgInput = document.forma.pole, nSelStart = oMsgInput.selectionStart, nSelEnd = oMsgInput.selectionEnd, sOldText = oMsgInput.value;
+            oMsgInput.value = sOldText.substring(0, nSelStart) + (bDouble ? sStartTag + sOldText.substring(nSelStart, nSelEnd) + sEndTag : sStartTag) + sOldText.substring(nSelEnd);
+            oMsgInput.setSelectionRange(bDouble || nSelStart === nSelEnd ? nSelStart + sStartTag.length : nSelStart, (bDouble ? nSelEnd : nSelStart) + sStartTag.length);
+            oMsgInput.focus();
+        }
+        function insertMetachars1(sStartTag, sEndTag) {
+                   
+            var bDouble = arguments.length > 1, oMsgInput = document.forma1.pole1, nSelStart = oMsgInput.selectionStart, nSelEnd = oMsgInput.selectionEnd, sOldText = oMsgInput.value;
+            oMsgInput.value = sOldText.substring(0, nSelStart) + (bDouble ? sStartTag + sOldText.substring(nSelStart, nSelEnd) + sEndTag : sStartTag) + sOldText.substring(nSelEnd);
+            oMsgInput.setSelectionRange(bDouble || nSelStart === nSelEnd ? nSelStart + sStartTag.length : nSelStart, (bDouble ? nSelEnd : nSelStart) + sStartTag.length);
+            oMsgInput.focus();
+        }*/
+        
+	    function Zapisz(){
+            
+            var content =  document.getElementById("podgladslowek1").value;
+            uriContent = "data:application/octet-stream," + encodeURIComponent(content);
+            document.getElementById("dlink").innerHTML = "<a href=" + uriContent + " download=\"AskMe_test.askme\">Download</a>";
+	    }  
+
+        document.getElementById("myFile").onchange = function() {
+            loadFileAsText();
+        }
+
+        function loadFileAsText(){
+        var myFile = document.getElementById("myFile").files[0];
+    
+        var fileReader = new FileReader();
+        fileReader.onload = function(fileLoadedEvent){
+            var textFromFileLoaded = fileLoadedEvent.target.result;
+            document.getElementById("inputTextToSave").value = textFromFileLoaded;
+                    
+                    
+                    words = textFromFileLoaded.split("\n");
+                    //indexPolskieSłowo = 2;
+                    //document.getElementById("j1").innerHTML = words[0];
+                    //document.getElementById("j2").innerHTML = words[1];
+                    //updateTextBoxes();
+        };
+    
+
+        fileReader.readAsText(myFile, "UTF-8");
+        } 
+
+
+
+
+        var zaslona = document.getElementById("zaslona");
+        var appearOnScreen = document.getElementById("appearOnScreen");
+        
+        appearOnScreen.onclick = function(){
+            document.getElementById("browse").hidden = false;
+            document.getElementById("browse1").hidden = false;
+            appearOnScreen.style.display = "none";
+            zaslona.style.display = "none";
+        }
+        zaslona.onclick = function(){
+        //zaslona.style.opacity = 0;
+        document.getElementById("browse").hidden = false;
+        document.getElementById("browse1").hidden = false;
+        appearOnScreen.style.display = "none";
+        zaslona.style.display = "none";
+        }
+
+        function showDiv(){
+        
+            zaslona.style.display = "block";
+            appearOnScreen.style.display = "block";
+        }
+
+        function podglad(){
+
+            document.getElementById("browse").hidden = true;
+            document.getElementById("browse1").hidden = true;
+
+            var slowa = [];
+
+            var x = 0;
+            var y = 1;
+            var tekst = document.getElementById("inputTextToSave").value;
+            slowa = tekst.split("\n");
+            
+            
+           var text = "";
+           var i = 0;
+           
+           while(slowa[i]){
+
+               if(slowa[x]!==" "){
+               text += slowa[x] + " - " + slowa[y] + "\n";
+               }
+               x = x + 2 ;
+               y = y + 2 ;
+               i++;
+               
+           }
+            
+            //var okno = window.open("", "Words", "width=200,height=500,text-align=center");
+            var find = text.split('undefined - undefined').join('');
+            find=find.split('-').join('');
+			find=find.split('- undefined').join('');
+			find=find.split('undefined').join('');
+			find=find.split('undefined -').join('');
+            document.getElementById("tekst").value = find;
+        }
+
+
+                //test 2
+
+
+        document.getElementById("myFile1").onchange = function() {
+        loadFileAsText1();
+        }
+
+        function loadFileAsText1(){
+        var myFile1 = document.getElementById("myFile1").files[0];
+    
+        var fileReader = new FileReader();
+        fileReader.onload = function(fileLoadedEvent){
+            var textFromFileLoaded = fileLoadedEvent.target.result;
+
+            dzielenie = textFromFileLoaded.split("\r\n");
+            var jezyk1 = dzielenie[0];
+            document.getElementById("jezyk_1").innerHTML = jezyk1;
+            var jezyk2 = dzielenie[1];
+            document.getElementById("jezyk_2").innerHTML = jezyk2;
+            dzielenie.shift();
+            dzielenie.shift();
+            
+            //textFromFileLoaded.join("\r\n");
+
+            //alert(dzielenie);
+            //alert(jezyk1 + jezyk2);
+
+            document.getElementById("inputTextToSave1").value = dzielenie;
+            
+                    
+                    
+                    words = textFromFileLoaded.split("\n");
+                    //indexPolskieSłowo = 2;
+                    //document.getElementById("j1").innerHTML = words[0];
+                    //document.getElementById("j2").innerHTML = words[1];
+                    //updateTextBoxes();
+        };
+    
+
+        fileReader.readAsText(myFile1, "UTF-8");
+        } 
+
+        function podglad1(){
+
+            document.getElementById("browse").hidden = true;
+            document.getElementById("browse1").hidden = true;
+
+            var slowa = [];
+
+            var x = 0;
+            var y = 1;
+            var tekst = document.getElementById("inputTextToSave1").value;
+            slowa = tekst.split("\n");
+            
+            
+           var text = "";
+           var i = 0;
+           
+           while(slowa[i]){
+
+               if(slowa[x]!==" "){
+               text += slowa[x] + " - " + slowa[y] + "\n";
+               }
+               x = x + 2 ;
+               y = y + 2 ;
+               i++;
+               
+           }
+
+            var jezyk_1a = document.getElementById("jezyk_1").innerHTML;
+            var jezyk_2a = document.getElementById("jezyk_2").innerHTML;
+            var jezyki = jezyk_1a + " - " + jezyk_2a + "\n";
+            
+            //var okno = window.open("", "Words", "width=200,height=500,text-align=center");
+            var find = text.split('undefined - undefined').join('');
+            find=find.split('-').join('');
+			find=find.split('- undefined').join('');
+			find=find.split('undefined').join('');
+			find=find.split('undefined -').join('');
+            document.getElementById("tekst").value = jezyki + find;
+        }
+
+	</script>
+        
+</body>
+</html>

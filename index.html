@@ -1,0 +1,415 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <script src="scripts/jquery-3.3.1.min.js"></script>
+    <script src="scripts/form.js"></script>
+    <script src="scripts/index.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" type="image/ico" href="images/ico.ico">
+    <title>AskMe - Enrich your vocabulary</title>
+
+    <script>
+
+        function pl(){
+            window.location.hash = "#pl";
+            languages();
+        }
+        function en(){
+            window.location.hash = "#en";
+            languages();
+        }
+
+        var language = {
+            en: {
+                bar1: "About",
+                bar2: "Make/Take Your Tests",
+                bar3: "Library",
+                bar4: "Mobile",
+                bar5: "Contact",
+
+                header1: "About",
+                text1: "AskMe is the easiest way to improve your foreign language vocabulary. With an easy creation process you can create a custom list of words for your own needs. You can also test yourself with lists made by other users. Use it to get a good mark on a test, or just to make progress. Nothing is stopping you from becoming fluent in the language of your choice. I guess you want to try it, right?",
+
+                header2: "Make your own tests",
+                text2: "If you want to make your own test, click the button below to open the word list creator. What language you learn depends only on you.",
+
+                header3: "Take your tests",
+                text3: "If you have a test you want to take, click the button below and start making progress with AskMe. ",
+
+                header4: "Add your test to the library",
+                text4: "If you want to share your test and have access to it everywhere, add it to our library.",
+
+                header5: "Library",
+                text5: "Choose from among numerous tests created by other users.",
+
+                header6: "Mobile",
+                text6: "Use AskMe on your smartphone. It’s the easiest way to learn from flashcards on your mobile device. Coming soon!",     
+
+                header7: "Contact us",
+                //text7: "",
+
+            },
+            pl: {
+                bar1: "O programie",
+                bar2: "Twórz/Rozwiązuj Swoje Testy",
+                bar3: "Biblioteka",
+                bar4: "Mobilnie",
+                bar5: "Kontakt",  
+
+                header1: "O programnie",
+                text1: "AskMe jest najprostszym sposobem do nauki słówek z całego świata. Z łatwym kreatorem możesz stworzyć swoją listę słówek, których chcesz się nauczyć. Możesz także sprawdzić listę słówek stworzonych przez naszych użytkowników. Odwiedzaj nas, gdy musisz się przygotować do sprawdzianu lub po prostu chcesz się rozwijać. Nic nie stoi na przeszkodzie, żebyś stawał się lepszy w języku, który cię interesuje. Mam nadzieję, że chcesz spróbować, prawda?",
+
+                header2: "Twórz swoje testy",
+                text2: "Jeśli chcesz stworzyć swój własny test, kliknij guzik poniżej by otworzyć kreator słówek. Język, którego się będziesz uczyć, zależy tylko od ciebie.",
+
+                header3: "Rozwiązuj swoje testy",
+                text3: "Jeśli masz już listę słówek do nauki, kliknij guzik poniżej i zacznij robić progres z AskMe.",
+
+                header4: "Dodaj swój test do biblioteki",
+                text4: "Jeśli chcesz się podzielić swoim testem i mieć go pod ręką wszędzie, dodaj go do naszej biblioteki.",
+
+                header5: "Biblioteka",
+                text5: "Wybieraj z wielu testów stworzonych przez naszych użytkowników.",
+
+                header6: "Mobilnie",
+                text6: "Używaj AskMe na swoim smartfonie. Jest to prosta nauka słówek na urządzeniu przenośnym. Już wkrótce!",     
+
+                header7: "Kontakt",
+                //text7: "",
+                contact_f1: "Wiadomość:",
+
+            },            
+        };
+        
+        function languages(){
+            if(window.location.hash === "#pl"){
+                bar1.textContent = language.pl.bar1;
+                bar2.textContent = language.pl.bar2;
+                bar3.textContent = language.pl.bar3;
+                bar4.textContent = language.pl.bar4;
+                bar5.textContent = language.pl.bar5;
+
+                header1.textContent = language.pl.header1;
+                text1.textContent = language.pl.text1;
+
+                header2.textContent = language.pl.header2;
+                text2.textContent = language.pl.text2;
+                guzik2.textContent = language.pl.header2;
+
+                header3.textContent = language.pl.header3;
+                text3.textContent = language.pl.text3;
+                guzik3.textContent = language.pl.header3;
+
+                header4.textContent = language.pl.header4;
+                text4.textContent = language.pl.text4;
+                guzik4.textContent = language.pl.header4;
+
+                header5.textContent = language.pl.header5;
+                text5.textContent = language.pl.text5;
+                guzik5.textContent = language.pl.header5;
+
+                header6.textContent = language.pl.header6;
+                text6.textContent = language.pl.text6;
+                guzik6.textContent = language.pl.header6;
+
+                header7.textContent = language.pl.header7;
+                //text7.textContent = language.pl.text7;
+                //document.getElementById("contact_f1").textContent = "language.pl.contact_f1;"
+                               
+            };
+            if(window.location.hash === "#en"){
+                bar1.textContent = language.en.bar1;
+                bar2.textContent = language.en.bar2;
+                bar3.textContent = language.en.bar3;
+                bar4.textContent = language.en.bar4;
+                bar5.textContent = language.en.bar5;
+
+                header1.textContent = language.en.header1;
+                text1.textContent = language.en.text1;
+
+                header2.textContent = language.en.header2;
+                text2.textContent = language.en.text2;
+                guzik2.textContent = language.en.header2;
+
+                header3.textContent = language.en.header3;
+                text3.textContent = language.en.text3;
+                guzik3.textContent = language.en.header3;
+
+                header4.textContent = language.en.header4;
+                text4.textContent = language.en.text4;
+                guzik4.textContent = language.en.header4;
+
+                header5.textContent = language.en.header5;
+                text5.textContent = language.en.text5;
+                guzik5.textContent = language.en.header5;
+
+                header6.textContent = language.en.header6;
+                text6.textContent = language.en.text6;
+                guzik6.textContent = language.en.header6;
+
+                header7.textContent = language.en.header7;
+                //text7.textContent = language.en.text7;
+
+            };
+        }
+
+    </script>
+</head>
+
+<body onload="wykrywanie()"> 
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark fontNav">
+        <a class=" fontNav scroll" href="#intro" id="navLogo"> AskMe </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link scroll fontNavA" href="#about" id="bar1">About
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link scroll fontNavA" href="#makee" id="bar2">Make/Take Your Tests
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link scroll fontNavA" href="#library" id="bar3">Library</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link scroll fontNavA" href="#mobile" id="bar4">Mobile
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link scroll fontNavA" href="#contact" id="bar5">Contact
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link scroll fontNavA">
+                        <img id="pl" src="images/pol.png" style="height: 14px; width: 28px; cursor: pointer;" onclick="pl()">
+                        <img id="en" src="images/ang.png" style="height: 14px; width: 28px; cursor: pointer;" onclick="en()">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="intro">
+        <div class="container-fluid no-padding">
+          <div class="row text-center">
+            <div class="col-md-12 col-sm-12" style="padding-top: 20vh">
+              <img src="images/logo.gif" class="introImg1">
+              <br>
+              <img src="images/napis.gif" class="introImg2">
+            </div> 
+          </div>
+        </div>
+      </section>
+    
+    <section id="about">
+        <div class="conteiner-fluid">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <p class="explanationMain text-center lang" id="header1">About</p>
+                    <p class="explanationSecond text-center" id="text1">AskMe is the easiest way to improve your foreign language vocabulary. 
+                        With an easy creation process you can create a custom list of words for your own needs. 
+                        You can also test yourself with lists made by other users. 
+                        Use it to get a good mark on a test, or just to make progress.  Nothing is stopping you from becoming fluent in the language of your choice.  I guess you want to try it, right?</p>
+                    <br>
+                    <br>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+        <br>
+        <br>
+    </section>
+    <section id="makee">
+        <div class="conteiner-fluid">
+            <div class="row text-center">
+                <div class="col-md-12 column1">
+                    <p class="explanationMain text-center" id="header2">Make your own tests</p>
+                    <p class="explanationSecond text-center" id="text2">If you want to make your own test, click the button below to open the word list creator. What language you learn depends only on you.</p>
+                    <center>
+                        <div class="aboutDiv">
+                            <a class="centerAlignWhite" href="przed_zapis.html">
+                                <center>
+                                    <span class="centerAlign" id="guzik2">
+                                        Make your own tests
+                                    </span>
+                                </center>
+                            </a>
+                        </div>
+                    </center>
+                </div>
+                <div class="col-md-12 column2">
+                    <p class="explanationMain text-center" id="header3">Take your tests</p>
+                    <p class="explanationSecond text-center" id="text3">If you have a test you want to take, click the button below and start making progress with AskMe.</p>
+                    <center>
+                        <div class="aboutDiv">
+                            <a class="centerAlignWhite" href="przed_odczyt.html">
+                                <center>
+                                    <span class="centerAlign" id="guzik3">
+                                        Take your tests
+                                    </span>
+                                </center>
+                            </a>
+                        </div>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="library">
+            <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-12 column1">
+                        <p class="explanationMain text-center" id="header4">Add your test to the library</p>
+                        <p class="explanationSecond text-center" id="text4">If you want to share your test and have access to it everywhere, add it to our library.</p>
+                        <br>
+                        <center>
+                            <div class="aboutDiv">
+                                <a class="centerAlignWhite" href="addtolibrary.html">
+                                    <center>
+                                        <span class="centerAlign" id="guzik4">
+                                            Add test
+                                        </span>
+                                    </center>
+                                </a>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-12 column2">
+                        <p class="explanationMain text-center" id="header5">Library</p>
+                        <p class="explanationSecond text-center" id="text5">Choose from among numerous tests created by other users.</p>
+                            <br>
+                            <center>
+                                <div class="aboutDiv">
+                                    <a class="centerAlignWhite" href="library.html">
+                                        <center>
+                                            <span class="centerAlign" id="guzik5">
+                                                Library
+                                            </span>
+                                        </center>
+                                    </a>
+                                </div>
+                            </center>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+    </section>
+    <section id="mobile">
+        <div class="container">
+            <div class="col-md-12 col-sm-12">
+                <p class="explanationMain text-center" id="header6">Mobile</p>
+                <p class="explanationSecond text-center" id="text6">Use AskMe on your smartphone. It’s the easiest way to learn from flashcards on your mobile device. Coming soon!</p></div>
+            </div>
+        <div class="row" style="padding-top: 100px;">
+            <div class="col-md-6 col-sm-6">
+              <div class="info-left text-center">
+                <h2>Android</h2>
+                <div class="hover"><a href=""><img src="images/android.png" class="introImg3"></a></div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="info-right text-center">
+                <h2>Apple</h2>
+                <div class="hover"><a href=""><img src="images/ios.png" class="introImg4"></a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12"><div class="padd">
+                    <br>
+                    <h2><p id="header7">Contact us</p></h2> 
+                    <p id="text7"> Please send your message below. We will get back to you at the earliest! </p>
+                    <form role="form" method="post" id="reused_form">
+                                <label for="message" ><a id="contact_f1">Message:</a></label>
+                                <textarea class="form-control" type="textarea" id="message" name="message" maxlength="6000" rows="5"></textarea>
+
+                                <label for="name" id="contact_f2"> Your Name:</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+
+                                <label for="email" id="contact_f3"> Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                                <br>
+                                <button type="submit" class="button2" style="border-radius: 5%" id="contact_f4">Send</button>
+                    </div>
+                    </form>
+                    <div id="success_message" style="width:100%; height:100%; display:none; "> <h3 id="contact_f5">Posted your message successfully!</h3> </div>
+                    <div id="error_message" style="width:100%; height:100%; display:none; " id="contact_f6"> <h3>Error</h3> Sorry there was an error sending your form. </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <hr class="my-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <center>
+                        <p style="font-family: 'Playfair Display', serif">© AskMe 2018</p>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <div id="facebook_slider_widget" style="display: none; padding-top: 80px"><script type="text/javascript" 
+        src="http://webfrik.pl/widget/facebook_slider.html?fb_url=https://www.facebook.com/askme.org&amp;
+        fb_width=290&amp;fb_height=590&amp;fb_faces=true&amp;fb_stream=true&amp;fb_header=true&amp;fb_border=true&amp;
+        fb_theme=light&amp;chx=787&amp;speed=FAST&amp;fb_pic=logo&amp;position=LEFT"></script>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+    <script>
+        function wykrywanie() { 
+        if( navigator.userAgent.match(/Android/i)
+        || navigator.userAgent.match(/webOS/i)
+        || navigator.userAgent.match(/iPhone/i)
+        || navigator.userAgent.match(/iPad/i)
+        || navigator.userAgent.match(/iPod/i)
+        || navigator.userAgent.match(/BlackBerry/i)
+        || navigator.userAgent.match(/Windows Phone/i)
+        ){
+            document.getElementById("facebook_slider_widget").hidden = true;
+        }
+        else {
+            document.getElementById("facebook_slider_widget").hidden = false;
+        }  
+        }
+        function klik_t(){
+            
+        }
+        function klik_a(){
+            
+        }
+        function klik_l(){
+            
+        }
+
+    </script>
+</body>
+
+</html>

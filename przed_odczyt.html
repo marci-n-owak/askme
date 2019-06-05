@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html> 
+<head>
+<meta content="text/html" charset="UTF-8" />
+
+<title>Take your tests</title> 
+<link rel="stylesheet" href="css/odczyt.css">
+<link rel="icon" type="image/ico" href="images/ico.ico">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6345584486276285",
+    enable_page_level_ads: true
+  });
+</script>
+<script type="text/javascript" language="javascript">
+    
+   
+   var indexPolskieSłowo = 2;
+   var words = [];
+    
+   function pl(){
+        window.location.hash = "#pl";
+        languages();
+    }
+        function en(){
+        window.location.hash = "#en";
+        languages();
+    }
+    
+    var language = {
+            en: {
+                bar1: "Make Your Tests",
+
+                header1: "Learning mode",
+                text1: "Fill in the empty fields, in the case of a correct answer the word will disappear from the list, in the case of a bad answer the word will appear again later.",
+
+                header2: "Test mode",
+                text2: "Fill in the empty fields until you provide the correct answer. At the end check your result.",
+
+            },
+            pl: {
+                bar1: "Twórz Swoje Testy",
+
+                header1: "Tryb nauki",
+                text1: "Uzupełniaj puste pola, gdy uzupełniasz poprawnie słówko zniknie z listy, jeśli uzpupełnisz źle słówko pojawi się później",
+
+                header2: "Tryb sprawdzianu",
+                text2: "Uzupełniaj puste pola dopóki nie podasz poprawnej odpowiedzi. Na końcu sprawdzianu sprawdź swój wynik.",
+                                    
+            },            
+        };
+        
+        function languages(){
+            if(window.location.hash === "#pl"){
+                bar1.textContent = language.pl.bar1;
+
+                header1.textContent = language.pl.header1;
+                text1.textContent = language.pl.text1;
+
+                header2.textContent = language.pl.header2;
+                text2.textContent = language.pl.text2;
+                              
+            };
+            if(window.location.hash === "#en"){
+                bar1.textContent = language.en.bar1;
+
+                header1.textContent = language.en.header1;
+                text1.textContent = language.en.text1;
+
+                header2.textContent = language.en.header2;
+                text2.textContent = language.en.text2;
+                
+            };
+        }
+
+</script>
+</head> 
+
+<body onload="start()">
+        <center><div id="appearOnScreen">
+                <textarea id="tekst" style="color: black; margin-top: 10vh;" disabled></textarea>
+                </div></center>
+        <div id="zaslona"></div>
+
+        <nav class="navbar navbar-expand-md fixed-top navbar-dark fontNav">
+        <a class=" fontNav scroll" href="index.html" id="navLogo"> AskMe </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link scroll fontNavA" href="przed_zapis.html" id="bar1">Make your tests
+                    </a>
+                </li>
+                <li class="nav-item active">
+                        <a class="nav-link scroll fontNavA">
+                            <img id="pl" src="images/pol.png" style="height: 14px; width: 28px; cursor: pointer;" onclick="pl()">
+                            <img id="en" src="images/ang.png" style="height: 14px; width: 28px; cursor: pointer;" onclick="en()">
+                        </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="all">
+        <table style="width: 94%; margin-left: 3%; margin-right: 3%;">
+            <tr>
+              <th style="width: 47%; font-size: 25px" id="header1">Learning mode</th>
+              <th style="width: 47%; font-size: 25px" id="header2">Test mode</th> 
+            </tr>
+            <tr>
+              <td><br><p id="text1">Fill in the empty fields, in the case of a correct answer the word will disappear from the list, in the case of a bad answer the word will appear again later.
+                </p>
+                <br>
+                <br>
+                <button class="guziczki" onclick="window.location.href='odczyt1.html'">Start</button>
+              </td>
+              <td><br><p id="text2">Fill in the empty fields until you provide the correct answer. At the end check your result.
+                </p>
+                <br>
+                <br>
+                <button class="guziczki" onclick="window.location.href='odczyt.html'">Start</button>
+              </td> 
+            </tr>
+          </table>
+    </div>
+
+            <footer>
+        <hr class="my-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <center>
+                        <p style="font-family: 'Playfair Display', serif">© AskMe 2018</p>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+
+    </script>
+</body>
+</html>
+
