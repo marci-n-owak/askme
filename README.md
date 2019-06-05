@@ -1,0 +1,2 @@
+# AskMe
+AskMe jest najprostszym sposobem do nauki słówek z całego świata. Z łatwym kreatorem możesz stworzyć swoją listę słówek, których chcesz się nauczyć. Możesz także sprawdzić listę słówek stworzonych przez naszych użytkowników. Odwiedzaj nas, gdy musisz się przygotować do sprawdzianu lub po prostu chcesz się rozwijać. Nic nie stoi na przeszkodzie, żebyś stawał się lepszy w języku, który cię interesuje. Mam nadzieję, że chcesz spróbować, prawda?
